@@ -26,10 +26,6 @@ The portfolio supports the following voice commands:
 - **"Go to Experience"**: Navigates to the Experience section.
 - **"Go to Contact"**: Navigates to the Contact section.
 - **"Open Resume"**: Opens my resume in a new tab.
-- **"Open Privacy Policy"**: Opens the Privacy Policy page.
-- **"Open License"**: Opens the License page.
-- **"Open Sitemap"**: Opens the Sitemap page.
-
 ---
 
 ## Chatbot Features
