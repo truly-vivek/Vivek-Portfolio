@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Vivek's Portfolio - A showcase of my skills, projects, education, and experience in Machine Learning, AI, and Web Development. Explore my journey and let's build something amazing together!">
+<meta name="keywords" content="Vivek, Portfolio, Machine Learning, AI, Web Development, Data Science, NLP, Python, Projects, Resume, Chatbot, Voice Navigation">
+<meta name="author" content="Vivek Reddy Kesavarapu">
+<meta name="robots" content="index, follow">
+
+<!-- Open Graph / Social Media Meta Tags -->
+<meta property="og:title" content="Vivek's Portfolio |AI, Machine Learning & Web Development">
+<meta property="og:description" content="Explore Vivek's Portfolio - A showcase of skills, projects, and experience in Machine Learning, AI, and Web Development.">
+<meta property="og:image" content="https://vivek76.pages.dev/assets/og.jpg">
+<meta property="og:url" content="https://vivek76.pages.dev">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vivek's Portfolio | Machine Learning & Web Development">
+<meta name="twitter:description" content="Explore Vivek's Portfolio - A showcase of skills, projects, and experience in Machine Learning, AI, and Web Development.">
+<meta name="twitter:image" content="https://vivek76.pages.dev/assets/og.jpg">
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://vivek76.pages.dev">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+<link rel="manifest" href="/assets/site.webmanifest" />
+
+
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vivek Reddy Kesavarapu",
+      "url": "https://vivek76.pages.dev",
+      "image": "https://vivek76.pages.dev/assets/vivek.jpg",
+      "jobTitle": "AI Developer",
+      "description": "Explore my journey and let's build something amazing together!",
+      "sameAs": [
+        "https://github.com/truly-vivek",
+        "https://www.linkedin.com/in/vivek-reddy-kesavarapu-b26243243/"
+      ]
+    }
+    </script>
+
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+  /* Navigation Bar */
+  nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff0000;
+            
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none !important;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 4px 0;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        /* Vertical Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px; /* Hidden by default */
+            width: 250px;
+            height: 100%;
+            background-color: #ffffff;
+            box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: left 0.3s;
+        }
+
+        .sidebar.active {
+            left: 0; /* Visible when active */
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .sidebar ul li {
+            margin: 20px 0;
+        }
+
+        .sidebar ul li a {
+            font-size: 18px;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .sidebar ul li a:hover {
+            color: #ff0000;
+        }
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Overlay for Background Dimming */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        
+       
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 150px 10% 210px;
+            background-color: #ff0000;
+            color: #ffffff;
+        }
+
+        .hero .hero-text {
+            max-width: 50%;
+        }
+
+        .hero .hero-text h1 {
+            font-size: 48px;
+            /*font-weight: bold;*/
+            margin-bottom: 20px;
+        }
+
+        .hero .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero .hero-text .cta-button {
+            padding: 15px 30px;
+            background-color: #ffffff;
+            color: #ff0000;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .hero .hero-text .cta-button:hover {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .hero .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Footer 
+        footer {
+            text-align: center;
+            padding: 20px 10%;
+            background-color: #ffffff;
+            color: #333;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        footer p {
+            margin: 0;
+        }*/
+
+        /* Responsive Design */
+        
+
+       
+         /* About Section */
+         .about {
+            padding: 50px 10%;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .about h1 {
+            font-size: 40px;
+            /*font-weight: bold;*/
+          
+            
+        }
+        
+
+        .about .profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .about .profile img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #ff0000;
+        }
+
+        .about .profile .bio {
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .about .profile .bio h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about .profile .bio p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            padding: 10px 10%;
+            text-align: center;
+            background-color: #ffffff;
+        }
+
+        .cta h2 {
+            font-size: 36px;
+            /*font-weight: bold;*/
+            margin-bottom: 20px;
+            color: #ff0000;
+        }
+
+        .cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .cta .cta-button {
+            padding: 15px 30px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cta .cta-button:hover {
+            background-color: #ffffff;
+            color: #ff0000;
+            border: 2px solid #ff0000;
+        }
+
+ 
+
+        /* Add this to your existing CSS */
+nav.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Add this to your existing CSS */
+@media (max-width: 768px) {
+    /* Add padding to the top of each section to account for the sticky header */
+    #about,
+    #projects,
+    #education,
+    #contact {
+        padding-top: 80px; /* Default padding for most sections */
+    }
+
+    /* Specific padding for Skills and Experience sections */
+    #skills{
+        padding-top: 10px;
+    }
+    #site-timeline {
+        padding-top: 40px; /* Smaller padding for Skills and Experience */
+    }
+}
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #ffffff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul {
+        display: none !important;
+    }
+            .mid-nav {
+        display: none !important; /* Ensures the navbar is hidden on mobile */
+    }
+    .hero-image {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    }
+    .menu-toggle {
+                display: flex !important;
+            }
+
+
+           .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 10%;
+                padding-top: 80px; 
+            }
+
+            .hero .hero-text {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .hero .hero-image img {
+                max-width: 80%;
+            }
+
+            .about .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about .profile .bio {
+                text-align: center;
+            }
+        }
+
+        
+
+            /* Hamburger Menu Animation */
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+         /* Bottom Navigation Bar */
+         .mid-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 15px;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s, bottom 0.3s;
+    z-index: 1000;
+    pointer-events: none; /* Prevent interactions when hidden */
+}
+
+.mid-nav.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+        .mid-nav a {
+            font-size: 16px;
+            color: #333;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .mid-nav a.active {
+            background: black;
+            color: white;
+            font-weight: bold;
+        }
+
+      
+
+        .mid-nav.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+    
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.project-card {
+            margin: 15px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+    
+     
+/* Add this to your existing CSS */
+.scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, and Opera */
+}
+
+
+
+
+
+/*Experience*/
+
+#site-timeline {
+	position: relative;
+	max-width: 920px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#site-timeline h2{
+    font-size: 40px;
+            /*font-weight: bold;*/
+           
+            
+            text-align: center;
+            
+}
+.timeline-article .site-center-line {
+	position: absolute;
+	width: 3px;
+	height: 100%;
+	top: 5%;
+	left: 50%;
+	margin-left: -2px;
+	z-index: -1;
+	bottom: 5%;
+}
+.year__ {
+	display: inline-block;
+}
+.timeline-article.odd .site-center-line {
+	background: #BE0101;
+}
+.timeline-article.even .site-center-line {
+	background: #000000;
+}
+.timeline-article {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	margin-top: -2%;
+}
+.timeline-article .content-left-container,
+.timeline-article .content-right-container {
+	max-width: 47%;
+	width: 100%;
+}
+.timeline-article .content-left,
+.timeline-article .content-right {
+	position: relative;
+	width: auto;
+	padding: 60px 25px 20px;
+}
+.timeline-title {
+    font-size: 25px;
+        font-weight: bold;
+        color:#000000;
+	margin-top: 0;
+    margin-bottom: 5px;
+}
+.timeline-article p {
+	padding: 0;
+	font-weight: 400;
+	color: #242424;
+	font-size: 16px;
+	line-height: 24px;
+	position: relative;
+}
+.timeline-article .content-left-container {
+	float: left;
+}
+h1.timeline-year {
+	margin: 0;
+	display: inline-block;
+	padding: 10px 25px;
+	border-radius: 21px;
+	color: #fff;
+} 
+.timeline-article.odd .year__ {
+	float: left;
+}
+.timeline-article.odd h1.timeline-year {
+	background: #BE0101;
+}
+.timeline-article.even .year__ {
+	float: right;
+}
+.timeline-article.even h1.timeline-year {
+	background: #000000;
+}
+.line {
+	position: absolute;
+	width: 55px;
+	height: 2px;
+	top: 20px;
+	margin-left: 0;
+	z-index: -1;
+}
+.timeline-article.odd .line {
+	left: 50%;
+	background: #BE0101;
+}
+.timeline-article.even .line {
+	right: 50%;
+	background: #000000;
+}
+.owl-carousel {
+	position: relative;
+	width: auto;
+	padding: 60px 25px 20px;
+}
+.timeline-article .content-right-container {
+	float: right;
+}
+.timeline-article .meta-dot {
+	position: absolute;
+	top: 10px;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin-left: -10px;
+	border-radius: 100%;
+}
+.timeline-article.odd .meta-dot {
+	background: #BE0101;
+}
+.timeline-article.even .meta-dot {
+	background: #000000;
+}
+@media only screen and (max-width: 830px) {
+    #site-timeline .site-center-line {
+        margin-left: 0;
+        left: 5%;
+        width: 2px;
+    }
+    .timeline-article .content-left-container,
+    .timeline-article .content-right-container {
+        max-width: 100%;
+        width: 100%;
+        float: none;
+        margin-left: 0;
+        margin-right: 0;
+        min-height: auto;
+        text-align: left; /* Ensure text is properly aligned */
+    }
+    .timeline-article .content-left,
+    .timeline-article .content-right {
+        padding: 15px;
+        min-height: auto;
+    }
+    .timeline-article p {
+    padding: 25px;
+    font-weight: 400;
+    color: #242424;
+    font-size: 14px;
+    line-height: 24px;
+    position: relative;
+}
+    .timeline-article .content-left:before {
+        content: "\f0d9";
+        left: 0;
+        right: auto;
+        margin-left: 0;
+    }
+    .timeline-article .content-right:before {
+        display: none;
+    }
+    .timeline-title {
+      padding: 25px;
+        font-size: 25px;
+        font-weight: bold;
+        color:#000000;
+        margin-bottom: -40px;
+    }
+    .timeline-role{
+        padding: 25px; 
+    }
+    .timeline-article .meta-dot {
+        left: 5%;
+        margin-left: -10px;
+    }
+    .timeline-article .year__ h1.timeline-year {
+        padding: 5px 10px;
+        position: absolute; /* Ensure proper positioning */
+        left: 8%; /* Move it slightly right */
+        top: +1px; /* Adjust vertically */
+        font-size: 14px;
+        text-align: left;
+    }
+    .timeline-article .line {
+        display: none;
+    }
+    #owl-demo {
+        padding: 0 10px;
+    }
+    .owl-carousel .item img {
+        display: none;
+    }
+}
+
+
+
+/* Chatbot Container */
+.chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .chatbot-container.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .chatbot-header {
+            background-color: #ff0000;
+            color: #ffffff;
+            padding: 15px;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .close-chatbot {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .close-chatbot:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-body {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            max-height: 300px;
+            background-color: #f8f9fa;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .chatbot-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chatbot-message {
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .chatbot-message p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .chatbot-response {
+            background-color: #e9ecef;
+            align-self: flex-start;
+        }
+
+        .chatbot-user {
+            background-color: #ff0000;
+            color: #ffffff;
+            align-self: flex-end;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #e0e0e0;
+            background-color: #ffffff;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .chatbot-input input:focus {
+            border-color: #ff0000;
+        }
+
+        .chatbot-input button {
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background-color: #e60000;
+        }
+
+        .chatbot-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        }
+
+        .chatbot-toggle.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .chatbot-toggle i {
+            font-size: 24px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .chatbot-container {
+                width: 90%;
+                right: 5%;
+                bottom: 10px;
+            }
+
+            .chatbot-body {
+                max-height: 200px;
+            }
+        }
+       
+
+        .resume-button {
+    padding: 15px 30px;
+    background-color: #ffffff;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.resume-button:hover {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.resume-button:active {
+    transform: scale(0.95);
+}
+
+
+.button-container {
+    display: flex;
+    gap: 20px; /* Adds spacing between buttons */
+    justify-content: center; /* Centers buttons */
+    margin-top: 20px;
+}
+
+/* Mobile mode adjustments */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 15px; /* Adds spacing between buttons */
+        align-items: center; /* Center align */
+    }
+
+    .button-container button {
+        width: 80%; /* Make buttons take most of the width */
+    }
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+      <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">Vivek's Portfolio</div>
+        <ul id="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#site-timeline">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </nav>
+    <!-- Vertical Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" id="close-btn">&times;</span>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#site-timeline">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Overlay for Background Dimming -->
+    <div class="overlay" id="overlay"></div>
+
+
+     <!-- Bottom Navigation -->
+     <div class="mid-nav" id="midNav">
+        <a href="#about" class="active">Profile</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#site-timeline">Experience</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Turning data into insights, and ideas into reality. Explore my portfolio to see my journey in AI, NLP, and tech-driven innovation! Let's build something amazing together!</p>
+            <button class="cta-button" id="getStarted">Get Started</button>
+        </div>
+        <div class="hero-image">
+            <img src="assets/vivek.jpg" alt="Vivek" draggable="false">
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+     
+    <section class="about" id="about">
+        <h1 class="text-4xl font-bold text-center text-grey-500 mb-8">
+            <i class="fas fa-user text-red-500"></i> About Me
+        </h1>
+        <div class="profile">
+            <img src="/assets/vivek.jpg" alt="Profile Picture" draggable="false">
+            <div class="bio">
+                <h2>Vivek Reddy Kesavarapu</h2>
+                <p>Hello! I'm Vivek, an aspiring Machine Learning Engineer passionate about AI and human-centered technology. With a background in Information Technology, I specialize in deep learning, NLP, and data science. I have developed AI-powered applications that focus on real-time processing, accessibility, and human-computer interaction. My research contributions in AI-driven accessibility solutions reflect my commitment to innovation.</p><br>
+                 <p>When I’m not building, I love exploring emerging technologies, sharing insights on entrepreneurship, contributing to open-source projects, and refining my skills to develop innovative and impactful solutions that bridge technology and real-world needs.</p>
+                      </div>
+        </div>
+
+        
+    </section>
+     <!-- Call to Action Section -->
+     <section class="cta" id="cta">
+        <h2>Let's Work Together</h2>
+        <p>If you're interested in collaborating on a project or just want to say hi, feel free to reach out!</p>
+        <div class="button-container">
+            <button class="cta-button" id="contactMe">Contact Me</button>
+            <button class="resume-button">
+                <a href="https://bit.ly/vivek76" target="_blank">View Resume</a>
+            </button>
+        </div>
+    </section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <div class="max-w-7xl mx-auto my-12 p-11">
+        <h2 class="text-4xl font-bold text-center text-grey-500 mb-8">
+            <i class="fas fa-tools text-red-500"></i> My Skills
+        </h2>
+
+        <div class="flex flex-wrap justify-center gap-8">
+            <!-- Programming -->
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+                    <i class="fas fa-code text-red-500 text-2xl"></i> Programming
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 mt-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/python.png" alt="Python" draggable="false"/>
+                        <p>Python</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                        <img width="48" height="48" src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="Java" draggable="false"/>
+                        <p>Java(Basic)</p>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <!-- Machine Learning -->
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+                    <i class="fas fa-robot text-red-500 text-2xl"></i> Machine Learning
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 mt-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/robot.png" alt="Scikit-learn" draggable="false"/><p>Scikit-learn</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/tensorflow.png" alt="TensorFlow" draggable="false"/><p>TensorFlow</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/pastel-glyph/64/brain-3--v1.png" alt="NLP" draggable="false"/><p>NLP</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/opencv.png" alt="opencv" draggable="false"/><p>OpenCV</p></div>
+                </div>
+            </div>
+
+            <!-- Database -->
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+                    <i class="fas fa-database text-red-500 text-2xl"></i> Database
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 mt-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/mysql--v1.png" alt="MySQL" draggable="false"/><p>MySQL</p></div>
+                </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+                    <i class="fas fa-chart-line text-red-500 text-2xl"></i> Data Science
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 mt-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/numpy.png" alt="NumPy" draggable="false"/><p>NumPy</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/pandas.png" alt="Pandas" draggable="false"/><p>Pandas</p></div>
+                    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/bar-chart--v1.png" alt="Matplotlib" draggable="false"/><p>Matplotlib</p></div>
+                </div>
+            </div>
+  
+    <!-- Web Development -->
+    <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+        <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+            <i class="fas fa-globe text-red-500 text-2xl"></i> Web Development
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4 mt-4">
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/html-5--v1.png" alt="HTML5" draggable="false"/><p>HTML5</p></div>
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/css3.png" alt="CSS" draggable="false"/><p>CSS</p></div>
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/javascript--v1.png" alt="JavaScript" draggable="false"/><p>JS(Basic)</p></div>
+            <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="assets/EmailJS.png" alt="EmailJS" draggable="false"/><p>EmailJS</p></div>
+        </div>
+    </div>
+       
+
+
+<!-- Prompt Engineering -->
+<div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+    <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+        <i class="fas fa-microchip text-red-500 text-2xl"></i> Prompt Engineering
+    </h2>
+    <div class="flex flex-wrap justify-center gap-4 mt-4">
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/chatgpt.png" alt="ChatGPT" draggable="false"/><p>ChatGPT</p></div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/midjourney.png" alt="GenAI" draggable="false"/><p>GenAI</p></div>
+    </div>
+</div>
+
+           
+
+          
+
+                <!-- Cloud & Deployment -->
+                <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+                    <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+                        <i class="fas fa-cloud text-red-500 text-2xl"></i> Cloud & Deployment
+                    </h2>
+                    <div class="flex flex-wrap justify-center gap-4 mt-4">
+                        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/google-cloud.png" alt="google-cloud" draggable="false"/><p>Google Cloud</p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/ios-filled/50/1A1A1A/trine-120.png" alt="Vercel" draggable="false"/><p>Vercel</p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/google-firebase-console.png" alt="firebase" draggable="false"/><p>Firebase</p></div>
+                        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105"><img width="48" height="48" src="https://img.icons8.com/color/48/cloudflare.png" alt="cloudflare" draggable="false"/><p>cloudflare</p></div>
+                    </div>
+                </div>
+    
+
+
+
+            
+
+
+
+            <!-- Development & Version Control Tools: -->
+<div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+    <h2 class="text-xl font-semibold flex items-center justify-center gap-2 text-gray-800">
+        <i class="fas fa-tools text-red-500 text-2xl"></i> Development & Version Control Tools
+    </h2>
+    <div class="flex flex-wrap justify-center gap-4 mt-4">
+        
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/color/48/git.png" alt="Git" draggable="false"/>
+            <p>Git</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/windows/32/github.png" alt="GitHub" draggable="false" />
+            <p>GitHub</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/color/48/visual-studio-code-2019.png" alt="VS Code" draggable="false"/>
+            <p>VS Code</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/color/48/google-colab.png" alt="google-colab" draggable="false"/>
+            <p>Google Colab</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/spyder-ide-5.png" alt="spyder-ide-5" draggable="false"/>
+            <p>Spyder</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/fluency/48/anaconda--v2.png" alt="anaconda--v2" draggable="false"/>
+            <p>Anaconda</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition transform hover:scale-105">
+            <img width="48" height="48" src="https://img.icons8.com/color/48/arduino.png" alt="arduino" draggable="false"/>
+            <p>Arduino</p>
+        </div>
+
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <style>
+        .skill {
+            @apply bg-white p-4 rounded-lg shadow-md text-center w-32 transition-transform transform hover:scale-110;
+        }
+        .skill img {
+            @apply mx-auto;
+        }
+    </style>
+</section>
+
+
+
+<!-- Projects Section -->
+<section id="projects" class="py-12 bg-gray-100 animate-fadeIn ">
+    <div class="max-w-full mx-auto px-4">
+        <h2 class="text-4xl font-bold text-gray-700 mb-6 text-center">
+            <i class="fas fa-project-diagram text-red-500"></i> Projects
+        </h2>
+        
+        <div class="relative">
+            <!-- Slider Wrapper with hidden scrollbar -->
+            <div class="flex overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory space-x-8 py-4 scrollbar-hide">
+                <!-- Project Cards -->
+                
+            <!-- Project 1: Speech-to-Sign Language -->
+            <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/project1.jpg" alt="Speech-to-Sign Language Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Speech-to-Sign Language</h3>
+                <p>A real-time web application translating speech to sign language.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/signproject/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/signproject" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10515806" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: Age and Gender Prediction -->
+            <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/project2.jpg" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Age & Gender Prediction</h3>
+                <p>A deep learning-based system for accurately predicting age & gender in real-time.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/AGE_GENDER_PREDECTION/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/AGE_GENDER_PREDECTION" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://github.com/truly-vivek/AGE_GENDER_PREDECTION" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+<!-- Project 3: Drug Classification Using various ML models -->
+<div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+    <img src="./assets/dc.png" alt="Drug Classification Using various ML models" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+    <h3 class="text-lg font-bold">Drug Classification Using various ML models</h3>
+    <p>The goal is to predict the type of drug.</p>
+    <div class="mt-4 flex space-x-4">
+        <a href="https://github.com/truly-vivek/Drug-Classification-Using-various-ML-models/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+            <i class="fab fa-github text-xl mr-2"></i> Fork
+        </a>
+        <a href="https://github.com/truly-vivek/Drug-Classification-Using-various-ML-models" class="flex items-center text-gray-600 hover:text-green-500">
+            <i class="fas fa-code text-xl mr-2"></i> Code
+        </a>
+        <a href="https://github.com/truly-vivek/Drug-Classification-Using-various-ML-models" class="flex items-center text-gray-600 hover:text-yellow-500">
+            <i class="fas fa-laptop text-xl mr-2"></i> Live
+        </a>
+    </div>
+</div>
+
+
+
+            <!-- Project 4: Survey on Food Waste -->
+            <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/csp.png" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Survey on Food Waste</h3>
+                <p>Data-driven analysis and insights into food wastage trends.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://github.com/truly-vivek/" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+
+
+          
+
+            <!-- Project 5: Voice-Controlled Robot -->
+            <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/vcr.jpg" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Voice-Controlled Robot</h3>
+                <p>A robot that responds to voice commands, built using Ardubotics.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/Voice_Controlled_Robot/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/Voice_Controlled_Robot/" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://www.linkedin.com/posts/vivek76_arduino-arduinoproject-voicecontrol-activity-7052732669050191872-ul1J/?utm_source=share&utm_medium=member_desktop" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+
+          
+
+            <!-- Project 6: Line Follower Robot -->
+            <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/line follower robot1.jpg" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Line Follower Robot</h3>
+                <p>An autonomous robot detects and follows a predefined path, typically marked by a line.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/Line-Follower-Robot/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/Line-Follower-Robot/" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://www.linkedin.com/posts/vivek76_here-is-the-project-line-follower-robot-using-activity-7052728897259384833-ubeY/?utm_source=share&utm_medium=member_desktop" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+
+ <!-- Project 7: Portfolio Website -->
+ <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+    <img src="./assets/rvp.png" alt="Portfolio Website" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+    <h3 class="text-lg font-bold">Portfolio Website</h3>
+    <p>A personal website showcasing my projects, skills, education and resume.</p>
+    <div class="mt-4 flex space-x-4">
+        <a href="https://github.com/truly-vivek/Portfolio/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+            <i class="fab fa-github text-xl mr-2"></i> Fork
+        </a>
+        <a href="https://github.com/truly-vivek/Portfolio/" class="flex items-center text-gray-600 hover:text-green-500">
+            <i class="fas fa-code text-xl mr-2"></i> Code
+        </a>
+        <a href="https://truly-vivek.github.io/Portfolio/" class="flex items-center text-gray-600 hover:text-yellow-500">
+            <i class="fas fa-laptop text-xl mr-2"></i> Live
+        </a>
+    </div>
+</div>
+
+        
+            <!-- Project 8: Age in Days with Diverse Milestones -->
+            <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/AID.jpg" alt="Age in Days with Diverse Milestones" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Age in Days with Diverse Milestones</h3>
+                <p>Explore Milestones and Calculate Your Age</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/Age-in-Days/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/Age-in-Days/" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://ageindays.vercel.app" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+           
+ <!-- Project 9: Portfolio Website -->
+ <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+    <img src="./assets/p.png" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+    <h3 class="text-lg font-bold">Portfolio Website</h3>
+    <p>A dynamic website showcasing my professional journey in a visually engaging format.</p>
+    <div class="mt-4 flex space-x-4">
+        <a href="https://github.com/truly-vivek/My-Portfolio/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+            <i class="fab fa-github text-xl mr-2"></i> Fork
+        </a>
+        <a href="https://github.com/truly-vivek/My-Portfolio/" class="flex items-center text-gray-600 hover:text-green-500">
+            <i class="fas fa-code text-xl mr-2"></i> Code
+        </a>
+        <a href="https://vivek76.vercel.app/" class="flex items-center text-gray-600 hover:text-yellow-500">
+            <i class="fas fa-laptop text-xl mr-2"></i> Live
+        </a>
+    </div>
+</div>
+
+
+
+<!-- Project 10: https://worldtimestamps.web.app/ -->
+<div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+    <img src="./assets/wts.png" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+    <h3 class="text-lg font-bold">World Time Stamps</h3>
+    <p>Check live world time zones on an interactive map with real-time dates and times.</p>
+    <div class="mt-4 flex space-x-4">
+        <a href="https://github.com/truly-vivek/World-Time-Stamps/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+            <i class="fab fa-github text-xl mr-2"></i> Fork
+        </a>
+        <a href="https://github.com/truly-vivek/World-Time-Stamps" class="flex items-center text-gray-600 hover:text-green-500">
+            <i class="fas fa-code text-xl mr-2"></i> Code
+        </a>
+        <a href="https://worldtimestamps.web.app/" class="flex items-center text-gray-600 hover:text-yellow-500">
+            <i class="fas fa-laptop text-xl mr-2"></i> Live
+        </a>
+    </div>
+</div>
+
+
+
+
+
+<!-- Project 11: https://orbital-harmony.web.app/ -->
+<div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+    <img src="./assets/oh.png" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+    <h3 class="text-lg font-bold">Orbital Harmony</h3>
+    <p>Realistic orbital motion of Earth around the Sun and Moon around the Earth.</p>
+    <div class="mt-4 flex space-x-4">
+        <a href="https://github.com/truly-vivek/Orbital-Harmony/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+            <i class="fab fa-github text-xl mr-2"></i> Fork
+        </a>
+        <a href="https://github.com/truly-vivek/Orbital-Harmony" class="flex items-center text-gray-600 hover:text-green-500">
+            <i class="fas fa-code text-xl mr-2"></i> Code
+        </a>
+        <a href="https://orbital-harmony.web.app/" class="flex items-center text-gray-600 hover:text-yellow-500">
+            <i class="fas fa-laptop text-xl mr-2"></i> Live
+        </a>
+    </div>
+</div>
+
+
+             <!-- Project 12: electronic resume -->
+             <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/ER.jpg" alt="electronic resume" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">e-Resume V1</h3>
+                <p>An electronic resume showcasing my details in an interactive format.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/eResume/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Forks
+                    </a>
+                    <a href="https://github.com/truly-vivek/eResume" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://truly-vivek.github.io/eResume/" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+ <!-- Project 13: e-Resume -->
+             <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+                <img src="./assets/E-R.jpg" alt="e-Resume" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+                <h3 class="text-lg font-bold">Electronic Resume V2</h3>
+                <p>An e-resume showcasing my details in an interactive and accessible format.</p>
+                <div class="mt-4 flex space-x-4">
+                    <a href="https://github.com/truly-vivek/e-Resume/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+                        <i class="fab fa-github text-xl mr-2"></i> Fork
+                    </a>
+                    <a href="https://github.com/truly-vivek/e-Resume" class="flex items-center text-gray-600 hover:text-green-500">
+                        <i class="fas fa-code text-xl mr-2"></i> Code
+                    </a>
+                    <a href="https://truly-vivek.github.io/e-Resume/" class="flex items-center text-gray-600 hover:text-yellow-500">
+                        <i class="fas fa-laptop text-xl mr-2"></i> Live
+                    </a>
+                </div>
+            </div>
+
+
+
+
+
+
+
+   <!-- Project 7: Social Media Links 
+   <div class="p-4 border rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl bg-white">
+    <img src="./assets/vl.png" alt="Age and Gender Prediction Project" draggable="false" class="w-full h-48 object-cover rounded-md mb-4">
+    <h3 class="text-lg font-bold">My Social-Media Links Website</h3>
+    <p>Consolidated links to my online presence.</p>
+    <div class="mt-4 flex space-x-4">
+        <a href="https://github.com/truly-vivek/My-Social-Links/fork" class="flex items-center text-gray-600 hover:text-blue-500">
+            <i class="fab fa-github text-xl mr-2"></i> Fork
+        </a>
+        <a href="https://github.com/truly-vivek/My-Social-Links/" class="flex items-center text-gray-600 hover:text-green-500">
+            <i class="fas fa-code text-xl mr-2"></i> Code
+        </a>
+        <a href="https://truly-vivek.github.io/My-Social-Links/" class="flex items-center text-gray-600 hover:text-yellow-500">
+            <i class="fas fa-laptop text-xl mr-2"></i> Live
+        </a>
+    </div>
+</div>
+
+-->
+
+               
+        </div>
+    </div>
+</section>
+
+
+<!-- Education Section -->
+<section id="education" class="py-12 bg-white animate-fadeIn">
+    <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl font-semibold text-gray-700 mb-6 text-center">
+            <i class="fas fa-graduation-cap text-red-500"></i> My Education
+        </h2>
+
+        <div class="space-y-6">
+
+
+             <!-- Bachelor's in Information Technology -->
+             <div class="flex flex-col md:flex-row bg-white border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105">
+                <!-- Image (fills left side, 2:3 ratio) -->
+                <div class="w-full md:w-1/3">
+                    <img src="./assets/college1.jpg" alt="SRGEC" draggable="false" class="w-full h-full object-cover">
+                </div>
+                <!-- Education Details -->
+                <div class="w-full md:w-2/3 p-6">
+                    <h3 class="font-bold text-2xl">Bachelor's in Information Technology</h3>
+                    <p class="text-gray-600 text-lg">SRG Engineering College (SRGEC), GDLV</p>
+                    <p class="text-gray-600 text-lg">2020 - 2024</p>
+                    
+                    <p class="mt-2">📊 <strong>CGPA:</strong> 8.48</p>
+                    <p class="mt-2">🏆 <strong>Accomplishments:</strong> Class Representative, Received a Merit Certificate in workshops, ACM, Paper Publications, Built and deployed multiple applications, Leadership & Management, Anchored a formal cultural event</p>
+                 </div>
+            </div>
+
+            <!-- Master's in Artificial Intelligence -->
+            <div class="flex flex-col md:flex-row bg-white border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105">
+                <!-- Image (fills left side, 2:3 ratio) -->
+                <div class="w-full md:w-1/3">
+                    <img src="./assets/college2.jpg" alt="Sri Pratibha Junior College" draggable="false" class="w-full h-full object-cover">
+                </div>
+                <!-- Education Details -->
+                <div class="w-full md:w-2/3 p-6">
+                    <h3 class="font-bold text-2xl">Intermediate (10+2) in MPC</h3>
+                    <p class="text-gray-600 text-lg">Sri Pratibha Junior College, Ongole</p>
+                    <p class="text-gray-600 text-lg">2018 - 2020</p>
+                    
+                    <p class="mt-2">📊 <strong>CGPA:</strong> 9.88</p>
+                    <p class="mt-2">🏆 <strong>Accomplishments:</strong> Academic Topper, Yoga, Meditation</p>
+                </div>
+            </div>
+
+            <!-- Bachelor's in Information Technology -->
+            <div class="flex flex-col md:flex-row bg-white border rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105">
+                <!-- Image (fills left side, 2:3 ratio) -->
+                <div class="w-full md:w-1/3">
+                    <img src="./assets/school.jpg" alt="SRGEC" draggable="false" class="w-full h-full object-cover">
+                </div>
+                <!-- Education Details -->
+                <div class="w-full md:w-2/3 p-6">
+                    <h3 class="font-bold text-2xl">Secondary School Certificate (SSC)</h3>
+                    <p class="text-gray-600 text-lg">Zilla Parishad High School, Ethamukkala</p>
+                    <p class="text-gray-600 text-lg">2017 - 2018</p>
+                    
+                    <p class="mt-2">📊 <strong>CGPA:</strong> 9.7</p>
+                    <p class="mt-2">🏆 <strong>Accomplishments:</strong> Academic Topper, school’s Science Club, Study Group Leader, school cultural events, Leadership & Management</p>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!--Experience-->
+
+<section id="site-timeline">
+    <h2 class="py-12 text-4xl font-bold text-center text-grey-500 mb-6">
+        <i class="fas fa-briefcase text-red-500"></i> Experience
+    </h2>
+<div class="site-timeline-content">
+    
+    
+    <!-- // Article -->
+
+
+
+      
+<!-- Article -->
+<div class="timeline-article odd">
+    <div class="site-center-line"></div>
+  <div class="content-left-container">
+    <div id="owl-demo" class="owl-carousel owl-theme">
+      <div class="item"><img src="./assets/tshirt1.jpg" alt="Vivek"></div>
+      <div class="item"><img src="./assets/afe.png" alt="AI"></div>
+      <div class="item"><img src="./assets/esign.png" alt="Vivek"></div>  
+    </div>
+  </div>
+  <div class="content-right-container">
+    <div class="year__">
+      <div class="line"></div>
+      <h1 class="timeline-year">Dec 2024</h1>
+    </div>
+    <div class="content-right">
+      <h3 class="timeline-title">AI for Entrepreneurship</h3>
+      <h4 class="timeline-role font-semibold text-gray-700">Intel Technology India Pvt Ltd</h4>
+      <p>Participated in the **AI for Entrepreneurship** course, offered by **Intel Technology India Pvt Ltd** through **Skill India Digital Hub**. This course provided insights on applying Artificial Intelligence to entrepreneurial ventures. It explored AI-driven solutions to optimize business operations, enhance decision-making, and create innovative products. By leveraging AI, entrepreneurs can improve customer experiences, automate processes, and gain a competitive edge in the market. The course equipped participants with practical knowledge on implementing AI tools for startup growth and sustainability.</p> </div>
+  </div>
+  <div class="meta-dot">
+  </div>
+  </div>
+  
+  
+
+
+ <!-- Article - Research Paper Publication -->
+ <div class="timeline-article odd">
+  <div class="site-center-line"></div>
+  <div class="content-right-container">
+      <div class="year__">
+          <div class="line"></div>
+          <h1 class="timeline-year">Aug 2024</h1>
+      </div>
+      <div class="content-right">
+          <h3 class="timeline-title">Research Paper Publication</h3>
+          <h4 class="timeline-role font-semibold text-gray-700">IEEE</h4>
+          <p>Published a research paper titled "A Natural Language Processing Approach to the Translation of Speech into Indian Sign Language," focusing on AI-driven accessibility solutions.</p>
+      </div>
+  </div>
+  <div class="meta-dot"></div>
+</div>
+
+
+
+
+
+
+    <!-- Article -->
+    <div class="timeline-article even">
+      <div class="site-center-line"></div>
+     <div class="content-left-container">
+         <div class="year__">
+           <div class="line"></div>
+           <h1 class="timeline-year">Jan 2023 - May 2023</h1>
+         </div>
+         <div class="content-right">
+          <h3 class="timeline-title">Machine Learning & Deep Learning Intern</h3>
+          <h4 class="timeline-role font-semibold text-gray-700">Smartbridge</h4>
+          <p>During my internship at Smartbridge, I developed a deep learning model for age and gender prediction from images & live, integrating OpenCV and TensorFlow for real-time processing. I worked on data preprocessing, model training, and optimization to enhance accuracy. My role also involved implementing computer vision techniques and exploring various architectures, including CNNs. I gained experience in deploying AI solutions and handling real-world datasets. This internship deepened my understanding of neural networks and provided hands-on experience in building scalable machine learning models.</p></div>
+      </div>
+      <div class="content-right-container">
+        <div id="owl-demo" class="owl-carousel owl-theme">
+          <div class="item"><img src="./assets/ml.jpg" draggable="false" alt="ML"></div>
+        
+        </div>
+      </div>
+      <div class="meta-dot">
+      </div>
+    </div>
+    <!-- // Article -->
+  
+<!-- Article -->
+<div class="timeline-article odd">
+  <div class="site-center-line"></div>
+<div class="content-left-container">
+  <div id="owl-demo" class="owl-carousel owl-theme">
+    
+    <div class="item"><img src="./assets/gc2.jpg" alt="Arcade"></div>
+    <div class="item"><img src="./assets/ac.jpg" alt="Arcade"></div>  
+  </div>
+</div>
+<div class="content-right-container">
+  <div class="year__">
+    <div class="line"></div>
+    <h1 class="timeline-year">Apr 2023 - May 2023</h1>
+  </div>
+  <div class="content-right">
+    <h3 class="timeline-title">Google Cloud Arcade Facilitator</h3>
+    <h4 class="timeline-role font-semibold text-gray-700">Google Cloud Program</h4>
+    <p>As part of the Google Cloud Arcade Facilitator Program, I guided participants through hands-on labs and real-world cloud computing exercises. I provided support in understanding Google Cloud services, infrastructure, and deployment strategies. My role involved troubleshooting cloud-based challenges, assisting peers in gaining cloud certifications, and enhancing my expertise in cloud computing. Through interactive labs, I strengthened my skills in computing, networking, storage, and security within the Google Cloud ecosystem. </p></div>
+</div>
+<div class="meta-dot">
+</div>
+</div>
+
+
+    
+    <!-- Article - Chairperson of ACM Student Chapter -->
+    
+
+    <!-- Article - LinkedIn Certified Marketing Insider -->
+    <div class="timeline-article odd">
+        <div class="site-center-line"></div>
+        <div class="content-right-container">
+            <div class="year__">
+                <div class="line"></div>
+                <h1 class="timeline-year">June 2023</h1>
+            </div>
+            <div class="content-right">
+                <h3 class="timeline-title">Certified Marketing Insider</h3>
+                <h4 class="timeline-role font-semibold text-gray-700">LinkedIn</h4>
+                <p>Completed a virtual certification program, enhancing knowledge in LinkedIn marketing strategies and digital brand building.</p>
+            </div>
+        </div>
+        <div class="meta-dot"></div>
+    </div>
+    
+   
+    
+    <!-- Article - Chairperson of ACM Student Chapter -->
+    <div class="timeline-article even">
+        <div class="site-center-line"></div>
+        <div class="content-left-container">
+            <div class="year__">
+                <div class="line"></div>
+                <h1 class="timeline-year">2023</h1>
+            </div>
+            <div class="content-right">
+                <h3 class="timeline-title">Chairperson</h3>
+                <h4 class="timeline-role font-semibold text-gray-700">ACM SRGEC Student Chapter</h4>
+                <p>Led and managed activities, workshops, and events for the student chapter, promoting computing and technology awareness.</p>
+            </div>
+        </div>
+        <div class="meta-dot"></div>
+    </div>
+    
+   
+    <!-- // Article -->
+
+
+
+
+
+
+    <!-- Article -->
+    <div class="timeline-article odd">
+      <div class="site-center-line"></div>
+    <div class="content-left-container">
+      <div id="owl-demo" class="owl-carousel owl-theme">
+        <div class="item"><img src="./assets/bo.png" alt="Intern"></div>
+         
+      </div>
+    </div>
+    <div class="content-right-container">
+      <div class="year__">
+        <div class="line"></div>
+        <h1 class="timeline-year">May 2022 - June 2022</h1>
+      </div>
+      <div class="content-right">
+        <h3 class="timeline-title">AWS Cloud Intern</h3>
+        <h4 class="timeline-role font-semibold text-gray-700">Brainovision</h4>
+        <p>At Brainovision, I participated in an intensive AWS Cloud internship, where I gained foundational knowledge of cloud computing services. I worked on setting up virtual servers, managing databases, and configuring cloud storage solutions. I learned how to deploy applications on AWS and implement best security practices for cloud-based environments. The internship provided practical exposure to cloud networking, identity management, and disaster recovery strategies. I explored the fundamentals of AWS cloud architecture, improving my skills in cloud cost optimization and performance tuning.</p></div>
+    </div>
+    <div class="meta-dot">
+    </div>
+  </div>
+
+
+
+
+    <div class="timeline-article even">
+      <div class="site-center-line"></div>
+      <div class="content-left-container">
+          <div class="year__">
+              <div class="line"></div>
+              <h1 class="timeline-year">2021</h1>
+          </div>
+          <div class="content-right">
+              <h3 class="timeline-title">Class Representative</h3>
+              <h4 class="timeline-role font-semibold text-gray-700">SRGEC, Department of Information Technology</h4>
+              <p>As the Class Representative, I served as a liaison between students and faculty, ensuring smooth communication and addressing academic concerns. I coordinated class activities, facilitated discussions on curriculum-related matters, and represented students' perspectives in meetings. I actively contributed to improving classroom engagement and collaborated with faculty to enhance the learning experience. This role strengthened my leadership, communication, and problem-solving skills, allowing me to develop a proactive approach to teamwork and responsibility while fostering a positive and productive academic environment.</p></div>
+      </div>
+
+      <div class="content-right-container">
+          <div id="owl-demo" class="owl-carousel owl-theme">
+            <!--<div class="item"><img src="vk.jpg" alt="The Last of us"></div> -->
+            <div class="item"><img src="./assets/esign.png" alt="Vivek"></div>
+            <div class="item"><img src="./assets/tshirt1.jpg" alt="Vivek"></div>  
+          </div>
+        </div>
+      <div class="meta-dot"></div>
+  </div>
+
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-12 bg-gray-100 animate-fadeIn">
+<div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-4xl font-semibold text-gray-700 mb-6 text-center">
+        <i class="fas fa-envelope text-red-500"></i> Get in Touch
+    </h2>
+    
+<div class="flex flex-col lg:flex-row gap-8">
+    <!-- Left Side: Map -->
+    <div class="lg:w-1/2">
+        <div class="relative h-80">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61512.74489759578!2d79.99042402665091!3d15.508803933453096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4b011c10366c03%3A0x6ee40296fd2dbcc5!2sOngole%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1733747899196!5m2!1sen!2sin" 
+                    class="absolute top-0 left-0 w-full h-full rounded-md shadow-md" 
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Right Side: Contact Form -->
+   <div class="w-full">
+        <form id="contactForm" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="name" class="block text-gray-700 font-semibold">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md shadow-sm" required>
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-semibold">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-md shadow-sm" required>
+                </div>
+            </div>
+            <div>
+                <label for="message" class="block text-gray-700 font-semibold">Message</label>
+                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-md shadow-sm" required></textarea>
+            </div>
+            <button type="submit" id="sendEmail" class="bg-red-500 text-white px-6 py-2 rounded-md shadow hover:bg-blue-600">Send Message</button>
+        </form>
+    </div>
+    
+    <!-- Success/Error Popup Modal -->
+    <div id="popupMessage" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg shadow-lg p-6 text-center space-y-4">
+            <h2 id="popupTitle" class="text-lg font-semibold">Message Sent Successfully!</h2>
+            <p id="popupDescription">Thank you for visiting my portfolio! I appreciate your time and interest.</p>
+            <button id="closePopup" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Close</button>
+        </div>
+    </div>
+    
+   
+    
+    
+</div>
+</div>
+</section>
+
+    <!-- Footer -->
+    <section id="footer" class="relative">
+    <div class="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
+    <footer class="bg-gray-900 text-gray-300 py-10">
+
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-x-12 gap-y-6">
+            <!-- Bio Section -->
+            <div>
+                <h2 class="text-lg font-semibold text-white">About Me</h2>
+                <p class="mt-2 text-sm">Passionate about Machine Learning and AI, building impactful solutions.</p>
+                <h2 class="text-lg font-semibold text-white mt-6">Vivek's Portfolio Chatbot</h2>
+                <p class="mt-2 text-sm">An interactive chatbot designed to guide visitors through my portfolio and answer queries efficiently.</p>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="mt-8 md:mt-0">
+                <h2 class="text-lg font-semibold text-white">Quick Links</h2>
+                <ul class="mt-2 space-y-2 text-sm list-disc list-inside">
+                    <li><a href="#home" class="hover:text-white">Home</a></li>
+                    <li><a href="#about" class="hover:text-white">About</a></li>
+                    <li><a href="#skills" class="hover:text-white">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-white">Projects</a></li>
+                    <li><a href="#education" class="hover:text-white">Education</a></li>
+                    <li><a href="#site-timeline" class="hover:text-white">Experience</a></li>
+                    <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    <li><a href="https://bit.ly/vivek76" target="_blank" class="cta-button">View Resume</a></li>
+
+                </ul>
+            </div>
+            
+            <!-- Social Icons -->
+            <div class="mt-4 md:mt-0">
+                <h2 class="text-lg font-semibold text-white">Follow Me</h2>
+                <div class="flex space-x-4 mt-2">
+                    <a href="https://github.com/truly-vivek" target="_blank" class="hover:text-white"><i class="fab fa-github text-xl"></i></a>
+                    <a href="https://www.linkedin.com/in/vivek-reddy-kesavarapu-b26243243/" target="_blank" class="hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="https://x.com/home" target="_blank" class="hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="mailto:vivekreddykesavarapu@gmail.com" class="hover:text-white"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+                <div class="mt-4 text-left">
+                    <p class="text-sm text-gray-400 mb-2">Click the button and say a command like "Go to Projects" or "Open Resume".</p>
+                    <button id="voice-command-btn" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold">
+                        🎙️ Voice Navigation
+                    </button>
+                    <p class="text-xs text-gray-500 mt-2">Supports: Home, About, Skills, Projects, Education, Experience, Contact, Resume</p>
+                </div>
+                
+            </div>
+            
+            <!-- Legal -->
+            <div>
+                <h2 class="text-lg font-semibold text-white">Legal</h2>
+                <ul class="mt-2 space-y-2 text-sm  list-disc list-inside">
+                    <li><a href="ppy.html" target="_blank" class="hover:text-white">Privacy Policy</a></li>
+                    <li><a href="license.html" target="_blank" class="hover:text-white">License</a></li>
+                    <li><a href="#" target="_blank" class="hover:text-white">Sitemap</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="text-center text-1xl font-semibold text-gray-400 mt-12 border-t border-gray-700 pt-5">
+            &copy; <span id="year"></span> Vivek. All Rights Reserved.
+        </div>
+    </footer>
+    </section>
+
+
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container" class="chatbot-container">
+        <div class="chatbot-header">
+            <h3>Vivek's Portfolio Chatbot</h3>
+            <button id="close-chatbot" class="close-chatbot">&times;</button>
+        </div>
+        <div id="chatbot-body" class="chatbot-body">
+            <div class="chatbot-messages">
+                <div class="chatbot-message chatbot-response">
+                    <p>Hi there! 👋 I'm Vivek's Portfolio Chatbot. How can I assist you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbot-input" placeholder="Type a message..." />
+            <button id="send-message">Send</button>
+        </div>
+    </div>
+
+    <!-- Chatbot Toggle Button -->
+    <button id="chatbot-toggle" class="chatbot-toggle">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script>
+        // Chatbot Toggle
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const closeChatbot = document.getElementById('close-chatbot');
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('active');
+            chatbotToggle.classList.add('hidden'); // Hide toggle button when chatbot is open
+        });
+
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.classList.remove('active');
+            chatbotToggle.classList.remove('hidden'); // Show toggle button when chatbot is closed
+        });
+
+        // Chatbot Messages
+        const chatbotBody = document.getElementById('chatbot-body');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const sendMessageButton = document.getElementById('send-message');
+
+        sendMessageButton.addEventListener('click', sendMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            const userMessage = chatbotInput.value.trim();
+            if (userMessage) {
+                // Add user message to the chat
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.classList.add('chatbot-message', 'chatbot-user');
+                userMessageDiv.innerHTML = `<p>${userMessage}</p>`;
+                chatbotBody.querySelector('.chatbot-messages').appendChild(userMessageDiv);
+
+                // Clear input
+                chatbotInput.value = '';
+
+                // Scroll to bottom
+                chatbotBody.scrollTop = chatbotBody.scrollHeight;
+
+                // Simulate bot response
+                setTimeout(() => {
+                    const botResponseDiv = document.createElement('div');
+                    botResponseDiv.classList.add('chatbot-message', 'chatbot-response');
+                    botResponseDiv.innerHTML = `<p>${getBotResponse(userMessage)}</p>`;
+                    chatbotBody.querySelector('.chatbot-messages').appendChild(botResponseDiv);
+
+                    // Scroll to bottom
+                    chatbotBody.scrollTop = chatbotBody.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function getBotResponse(userMessage) {
+            const lowerCaseMessage = userMessage.toLowerCase();
+
+            if (lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('hello')) {
+                return "Hello! 👋 How can I assist you today?";
+            } else if (lowerCaseMessage.includes('project')) {
+                return "You can check out my projects in the <strong>Projects</strong> section. Would you like me to take you there?";
+            } else if (lowerCaseMessage.includes('skill')) {
+                return "I have skills in Python, Data Science, Machine Learning, and more. Check out the <strong>Skills</strong> section for details.";
+            }  else if (lowerCaseMessage.includes('about')) {
+                return "You can learn more about me in the <strong>About</strong> section. Would you like me to take you there?";
+            }else if (lowerCaseMessage.includes('experience')) {
+        return "I have hands-on experience in Machine Learning and Deep Learning from my externship at <strong>Smartinternz</strong>. We worked on developing a deep learning model for age and gender prediction with a 93% accuracy rate. Would you like more details on my experience or other projects?";
+    } else if (lowerCaseMessage.includes('education')) {
+        return "I completed my B.Tech in Information Technology from <strong>SESADHRI RAO GUDLAVALLERU ENGINEERING COLLEGE</strong> with a CGPA of 8.48. I also attended <strong>Sri Pratibha Junior College</strong> for my Intermediate education, achieving a 95.5% in MPC. Currently, I am pursuing my Master's in Data Science.";
+    } else if (lowerCaseMessage.includes('certification')) {
+        return "I have earned several certifications including <strong>Programming Essentials in C (Cisco)</strong>, <strong>CS50 (Harvard)</strong>, <strong>Azure Developer Associate (Microsoft)</strong>, and <strong>Google Digital Marketing Certification</strong>. Would you like to know more about these certifications?";
+    } else if (lowerCaseMessage.includes('achievements')) {
+        return "I have several achievements including serving as the Chairperson for the ACM SRGEC Student Chapter and as Class Representative. I was also awarded as the Academic Topper in both Intermediate and 10th Standard. Would you like more details on any of these?";
+    } else if (lowerCaseMessage.includes('contact')) {
+        return "You can reach out to me through the contact form on my portfolio website or directly at <strong>vivekreddykesavarapu@gmail.com</strong>. I'm happy to help!";
+    } else if (lowerCaseMessage.includes('workshop')) {
+        return "I've participated in several workshops, including creating line follower and voice-controlled robots, earning a Merit Certificate in Ethical Hacking, and completing a drone flying challenge. Feel free to ask for more details on any of these workshops!";
+    } else if (lowerCaseMessage.includes('publication')) {
+        return "I have a publication titled <strong>'A Natural Language Processing Approach to the Translation of Speech into Indian Sign Language'</strong>, which was presented at the <strong>2024 International Conference on Distributed Computing and Optimization Techniques (ICDCOT)</strong> in Bengaluru, India. Would you like more details?";
+    } else if (lowerCaseMessage.includes('tools')) {
+        return "I have experience using various tools like <strong>Git, GitHub, VS Code, and Google Colaboratory</strong>. These tools help me streamline my development and version control processes, for more details Check out my <strong>Skills</strong> section.";
+    } else if (lowerCaseMessage.includes('ai tools')) {
+        return "I have hands-on experience with AI tools like <strong>ChatGPT, Gemini, GenAI, and Copilot</strong>, which assist me in automating tasks, generating code, and solving complex problems, for more details Check out my <strong>Skills</strong> section.";
+    } else if (lowerCaseMessage.includes('internship')) {
+        return "During my <strong>Smartinternz ML & DL Externship</strong> (Jan 2023 - June 2023), I worked on deep learning projects like the age and gender prediction model, which achieved impressive accuracy rates, for more details Check out my <strong>Experience</strong> section.";
+    } else if (lowerCaseMessage.includes('languages')) {
+        return "I am proficient in multiple programming languages including <strong>Python, C, and Java</strong>, and I continuously strive to learn more languages to stay updated in the field.";
+    } else if (lowerCaseMessage.includes('frameworks')) {
+        return "I have worked with various frameworks and libraries like <strong>TensorFlow, OpenCV, Matplotlib</strong>, and <strong>SQLite</strong> in my projects to develop scalable and efficient models.";
+    } else if (lowerCaseMessage.includes('database')) {
+        return "I have experience working with <strong>MySQL</strong> for managing relational databases and performing complex queries in my projects.";
+    } else if (lowerCaseMessage.includes('web development')) {
+        return "I have developed a personal portfolio website using <strong>HTML, CSS, JavaScript</strong>, and integrated an <strong>AI Chatbot</strong> along with <strong>EmailJS</strong> for seamless contact form interactions.";
+    } else if (lowerCaseMessage.includes('personal website')) {
+        return "My personal portfolio website, built with <strong>HTML, CSS, and JavaScript</strong>, showcases my skills, projects, and achievements. You can visit it at <strong><a href='https://vivek76.vercel.app' target='_blank'>vivek76.vercel.app</a></strong>.";
+    } else if (lowerCaseMessage.includes('real-time projects')) {
+        return "I have worked on real-time projects like the <strong>Speech to Sign Language Conversion Website</strong>, which uses NLP and deep learning for real-time translation, and the <strong>Age and Gender Prediction Model</strong> using CNNs and TensorFlow.";
+    } else if (lowerCaseMessage.includes('github')) {
+        return "You can check out my GitHub profile at <strong><a href='https://github.com/vivek76' target='_blank'>github.com/vivek76</a></strong> for all my code repositories and project contributions!";
+    } else if (lowerCaseMessage.includes('resume') || lowerCaseMessage.includes('cv') || lowerCaseMessage.includes('link')) {
+        return "You can view my resume at <strong><a href='https://bit.ly/vivek76' target='_blank'>this link</a></strong> for more details on my education, skills, and projects.";
+    } else if (lowerCaseMessage.includes('projects')) {
+        return "Check out my amazing projects by visiting the <strong><a href='https://vivek76.vercel.app#projects' target='_blank'>Projects</a></strong> section. Let me know if you want more details on any of them!";
+    } else if (lowerCaseMessage.includes('go to projects')) {
+        window.location.href = "https://vivek76.vercel.app#projects"; // Navigates to the Projects section
+        return "Navigating to the Projects section now...";
+    } 
+            
+            
+            
+            else {
+                return "I'm here to help! Feel free to ask me anything about Vivek's portfolio.";
+            }
+        }
+    </script>
+
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    
+    <script>
+//nav 
+          // JavaScript for Toggle Menu and Sidebar
+        const mobileMenu = document.getElementById('mobile-menu');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const closeBtn = document.getElementById('close-btn');
+
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Close sidebar when clicking outside
+        overlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
+    <script>
+        // Show navigation bar at the bottom after scrolling past hero section
+        const midNav = document.getElementById('midNav');
+        const heroSection = document.getElementById('home');
+        const contactSection = document.getElementById('footer');
+
+        window.addEventListener('scroll', () => {
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            const contactTop = contactSection.getBoundingClientRect().top;
+
+            if (heroBottom < 0) {
+                midNav.classList.add('visible');
+            } else {
+                midNav.classList.remove('visible');
+            }
+
+            // Hide the navbar in the contact section
+            if (contactTop < window.innerHeight * 0.6) {
+                midNav.classList.add('hidden');
+            } else {
+                midNav.classList.remove('hidden');
+            }
+        });
+
+        // Highlight active section
+        const links = document.querySelectorAll('.mid-nav a');
+        window.addEventListener('scroll', () => {
+            let fromTop = window.scrollY + 50;
+
+            links.forEach(link => {
+                let section = document.querySelector(link.getAttribute('href'));
+                if (
+                    section.offsetTop <= fromTop &&
+                    section.offsetTop + section.offsetHeight > fromTop
+                ) {
+                    links.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+
+
+        
+    </script>
+
+
+ <!-- JavaScript -->
+ <script>
+    // Initialize EmailJS with your User ID (replace 'YOUR_USER_ID' with your actual EmailJS User ID)
+(function() {
+    emailjs.init("x66kQtaVW_pmnkTrs"); // Replace with your EmailJS User ID
+})();
+
+// Form Submission
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Get form data
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    try {
+        // Send the email using EmailJS
+        const response = await emailjs.send("service_um4ztl5", "template_zamevgx", {
+            name: name,
+            email: email,
+            message: message
+        });
+
+        // Show success/error message in the popup
+        const popup = document.getElementById('popupMessage');
+        const title = document.getElementById('popupTitle');
+        const description = document.getElementById('popupDescription');
+
+        if (response.status === 200) {
+            title.textContent = 'Message Sent Successfully!';
+            description.textContent = 'Thank you for visiting my portfolio! I appreciate your time and interest.';
+        } else {
+            title.textContent = 'Submission Failed!';
+            description.textContent = `Error: ${response.text || 'Please try again later.'}`;
+        }
+
+        // Show the popup
+        popup.classList.remove('hidden');
+        popup.classList.add('flex');
+
+        // Reset form on success
+        if (response.status === 200) {
+            e.target.reset();
+        }
+    } catch (error) {
+        console.error('Error:', error);
+
+        // Show error popup
+        const popup = document.getElementById('popupMessage');
+        const title = document.getElementById('popupTitle');
+        const description = document.getElementById('popupDescription');
+
+        title.textContent = 'An Error Occurred!';
+        description.textContent = 'Unable to submit the form. Please try again later.';
+        popup.classList.remove('hidden');
+        popup.classList.add('flex');
+    }
+});
+
+// Close the popup
+document.getElementById('closePopup').addEventListener('click', function () {
+    const popup = document.getElementById('popupMessage');
+    popup.classList.add('hidden');
+});
+</script>
+
+
+
+
+
+<script> 
+
+// Select the scrollable container
+const scrollContainer = document.querySelector('.scrollbar-hide');
+
+// Add event listeners for hover-based scrolling
+scrollContainer.addEventListener('mousemove', (e) => {
+    const rect = scrollContainer.getBoundingClientRect();
+    const x = e.clientX - rect.left; // Get the mouse X position inside the container
+    const scrollWidth = scrollContainer.scrollWidth - rect.width; // Total scrollable width
+    const scrollPosition = (x / rect.width) * scrollWidth; // Calculate the scroll position
+    scrollContainer.scrollLeft = scrollPosition; // Scroll the container
+});
+
+//Get Started
+document.getElementById('getStarted').addEventListener('click', function() {
+    document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+});
+
+//Contact Me
+document.getElementById('contactMe').addEventListener('click', function() {
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+});
+//footterrr
+
+//document.querySelector('footer p').innerHTML = `&copy; ${new Date().getFullYear()} My Portfolio. All rights reserved.`;
+</script>
+
+
+<script>
+    $(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        items: 1, 
+        slideSpeed: 300,
+        paginationSpeed: 400,
+        autoplay: true,
+        loop: true
+    });
+    });
+    
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        if (!("webkitSpeechRecognition" in window)) {
+            alert("Your browser does not support speech recognition. Try using Chrome.");
+            return;
+        }
+    
+        const recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = "en-US";
+    
+        // Commands and corresponding section IDs
+        const commands = {
+            "go to home": "#home",
+            "go to about": "#about",
+            "go to skills": "#skills",
+            "go to projects": "#projects",
+            "go to education": "#education",
+            "go to experience": "#site-timeline",
+            "go to contact": "#contact",
+            "open resume": "https://bit.ly/vivek76",
+            "open Privacy Policy": "ppy.html",
+            "open License": "https://vivek76.pages.dev/license.html",
+            "open Sitemap": "https://vivek76.pages.dev/sitemap.xml"
+            
+        };
+    
+        function navigateToSection(command) {
+            const target = commands[command.toLowerCase()];
+            if (target) {
+                if (target.startsWith("http")) {
+                    window.open(target, "_blank"); // Open external links
+                } else {
+                    document.querySelector(target)?.scrollIntoView({ behavior: "smooth" });
+                }
+            } else {
+                alert("Command not recognized. Try again.");
+            }
+        }
+    
+        document.getElementById("voice-command-btn").addEventListener("click", () => {
+            recognition.start();
+        });
+    
+        recognition.onresult = (event) => {
+            const speechResult = event.results[0][0].transcript.trim();
+            console.log("Recognized:", speechResult);
+            navigateToSection(speechResult);
+        };
+    
+        recognition.onerror = (event) => {
+            console.error("Speech recognition error:", event.error);
+        };
+    });
+    </script>
+     <script>
+     // JavaScript to handle sticky header in mobile mode
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    const heroSection = document.getElementById('home');
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+
+    if (window.innerWidth <= 768) {
+        if (heroBottom < 0) {
+            nav.classList.add('sticky');
+        } else {
+            nav.classList.remove('sticky');
+        }
+    }
+});
+    </script>
+
+</body>
+</html>
